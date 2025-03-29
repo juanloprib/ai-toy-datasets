@@ -206,7 +206,7 @@ alphas = np.logspace(-3, 3, 10)
 param_grid = {
     "model__alpha": alphas,
 }
-grid = GridSearchCV(pipe, param_grid, cv=5)
+grid = GridSearchCV(pipe, param_grid, cv=5, scoring='neg_mean_absolute_error')
 grid.fit(X_train, y_train)
 print("\nRidge hyperparameters grid:")
 print("Best parameters:", grid.best_params_)
